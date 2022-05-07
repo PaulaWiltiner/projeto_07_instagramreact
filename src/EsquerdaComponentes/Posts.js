@@ -1,5 +1,21 @@
+import React from 'react';
+
 
 function PostItem(props) {
+
+  const [classHeart, setClassHeart] = React.useState("heart-outline"); // classHeart começa como "heart-outiline"
+  const [nameColor, setNameColor] = React.useState("black"); 
+
+  function troca() {
+    if(classHeart==="heart-outline" ) {
+      setClassHeart("heart")
+      setNameColor("danger")
+    }else{
+      setClassHeart("heart-outline")
+      setNameColor("black")
+    }
+  }
+
   return(
     <div class="post">
       <div class="topo">
@@ -19,7 +35,7 @@ function PostItem(props) {
       <div class="fundo">
         <div class="acoes">
           <div>
-            <ion-icon name="heart-outline"></ion-icon>
+            <ion-icon onClick={troca} name={classHeart} color={nameColor}></ion-icon>
             <ion-icon name="chatbubble-outline"></ion-icon>
             <ion-icon name="paper-plane-outline"></ion-icon>
           </div>
@@ -31,7 +47,7 @@ function PostItem(props) {
         <div class="curtidas">
           <img alt="" src={props.img3Post}/>
           <div class="texto">
-            Curtido por <strong> {props.texto1Post} </strong> e <strong> {props.texto2Post} </strong>
+            Curtido por <strong> {props.texto1Post} </strong> e <strong>outras {props.texto2Post} pessoas</strong>
           </div>
         </div>
       </div>
@@ -43,8 +59,8 @@ function PostItem(props) {
 export default function Posts() {
 
   const listaPosts = [
-    <PostItem img1Post= "assets/img/meowed.svg" nomePost="meowed" img2Post="assets/img/gato-telefone.svg" img3Post="assets/img/respondeai.svg" texto1Post="respondeai" texto2Post="outras 101.523 pessoas" />,
-    <PostItem img1Post="assets/img/barked.svg" nomePost="barked" img2Post="assets/img/dog.svg" img3Post="assets/img/adorable_animals.svg" texto1Post="adorable_animals" texto2Post="outras 99.159 pessoas" />
+    <PostItem img1Post= "assets/img/meowed.svg" nomePost="meowed" img2Post="assets/img/gato-telefone.svg" img3Post="assets/img/respondeai.svg" texto1Post="respondeai" texto2Post="101.523" />,
+    <PostItem img1Post="assets/img/barked.svg" nomePost="barked" img2Post="assets/img/dog.svg" img3Post="assets/img/adorable_animals.svg" texto1Post="adorable_animals" texto2Post="99.159" />
   ]
   return (
     <div class="posts">
