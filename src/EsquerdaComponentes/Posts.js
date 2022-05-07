@@ -1,79 +1,56 @@
 
+function PostItem(props) {
+  return(
+    <div class="post">
+      <div class="topo">
+        <div class="usuario">
+          <img alt="" src={props.img1Post} />
+          {props.nome1Post}
+        </div>
+        <div class="acoes">
+          <ion-icon name="ellipsis-horizontal"></ion-icon>
+        </div>
+      </div>
+
+      <div class="conteudo">
+        <img alt="" src={props.img2Post} />
+      </div>
+
+      <div class="fundo">
+        <div class="acoes">
+          <div>
+            <ion-icon name="heart-outline"></ion-icon>
+            <ion-icon name="chatbubble-outline"></ion-icon>
+            <ion-icon name="paper-plane-outline"></ion-icon>
+          </div>
+          <div>
+            <ion-icon name="bookmark-outline"></ion-icon>
+          </div>
+        </div>
+
+        <div class="curtidas">
+          <img alt="" src={props.img3Post}/>
+          <div class="texto">
+            Curtido por <strong> {props.texto1Post} </strong> e <strong> {props.texto2Post} </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 
 export default function Posts() {
+
+  const listaPosts = [
+    <PostItem img1Post= "assets/img/meowed.svg" nomePost="meowed" img2Post="assets/img/gato-telefone.svg" img3Post="assets/img/respondeai.svg" texto1Post="respondeai" texto2Post="outras 101.523 pessoas" />,
+    <PostItem img1Post="assets/img/barked.svg" nomePost="barked" img2Post="assets/img/dog.svg" img3Post="assets/img/adorable_animals.svg" texto1Post="adorable_animals" texto2Post="outras 99.159 pessoas" />
+  ]
   return (
     <div class="posts">
-      <div class="post">
-        <div class="topo">
-          <div class="usuario">
-            <img alt="" src="assets/img/meowed.svg" />
-            meowed
-          </div>
-          <div class="acoes">
-            <ion-icon name="ellipsis-horizontal"></ion-icon>
-          </div>
-        </div>
 
-        <div class="conteudo">
-          <img alt="" src="assets/img/gato-telefone.svg" />
-        </div>
+      {listaPosts.map( post => post )}
 
-        <div class="fundo">
-          <div class="acoes">
-            <div>
-              <ion-icon name="heart-outline"></ion-icon>
-              <ion-icon name="chatbubble-outline"></ion-icon>
-              <ion-icon name="paper-plane-outline"></ion-icon>
-            </div>
-            <div>
-              <ion-icon name="bookmark-outline"></ion-icon>
-            </div>
-          </div>
-
-          <div class="curtidas">
-            <img alt="" src="assets/img/respondeai.svg" />
-            <div class="texto">
-              Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="post">
-        <div class="topo">
-          <div class="usuario">
-            <img alt="" src="assets/img/barked.svg" />
-            barked
-          </div>
-          <div class="acoes">
-            <ion-icon name="ellipsis-horizontal"></ion-icon>
-          </div>
-        </div>
-
-        <div class="conteudo">
-          <img alt="" src="assets/img/dog.svg" />
-        </div>
-
-        <div class="fundo">
-          <div class="acoes">
-            <div>
-              <ion-icon name="heart-outline"></ion-icon>
-              <ion-icon name="chatbubble-outline"></ion-icon>
-              <ion-icon name="paper-plane-outline"></ion-icon>
-            </div>
-            <div>
-              <ion-icon name="bookmark-outline"></ion-icon>
-            </div>
-          </div>
-
-          <div class="curtidas">
-            <img alt="" src="assets/img/adorable_animals.svg" />
-            <div class="texto">
-              Curtido por <strong>adorable_animals</strong> e <strong>outras 99.159 pessoas</strong>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
